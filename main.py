@@ -5,10 +5,10 @@ import sys
 pygame.init()
 
 # Set up the display
-screen_width = 800
-screen_height = 600
+screen_width = 1920
+screen_height = 1080
 screen = pygame.display.set_mode((screen_width, screen_height))
-pygame.display.set_caption("Hello World Game")
+pygame.display.set_caption("Internity Grove")
 
 # Set up the font
 font = pygame.font.Font(None, 36)
