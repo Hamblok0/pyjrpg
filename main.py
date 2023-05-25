@@ -1,20 +1,17 @@
 import pygame
 import sys
-
+import constants
+from sandbox import Sandbox
 # Initialize Pygame
 pygame.init()
 
 # Set up the display
-screen_width = 1920
-screen_height = 1080
-screen = pygame.display.set_mode((screen_width, screen_height))
+clock = pygame.time.Clock()
+screen = pygame.display.set_mode((constants.screen_width, constants.screen_height))
 pygame.display.set_caption("Internity Grove")
 
-# Set up the font
-font = pygame.font.Font(None, 36)
-
-# Create a text surface
-text = font.render("Hello World", True, (255, 255, 255))
+# Initialize Sandbox
+sandbox = Sandbox()
 
 # Main game loop
 running = True
@@ -27,11 +24,12 @@ while running:
     # Clear the screen
     screen.fill((0, 0, 0))
 
-    # Draw the text
-    screen.blit(text, (screen_width // 2 - text.get_width() // 2, screen_height // 2 - text.get_height() // 2))
+    # Draw Sandbox
+    sandbox.draw(screen)
 
     # Update the display
     pygame.display.flip()
+    clock.tick(60)
 
 # Quit Pygame
 pygame.quit()
