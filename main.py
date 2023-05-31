@@ -1,7 +1,9 @@
 import pygame
+from pytmx.util_pygame import load_pygame
 import sys
 import constants
 from sandbox import Sandbox
+
 # Initialize Pygame
 pygame.init()
 
