@@ -1,8 +1,7 @@
 import pygame
-from pytmx.util_pygame import load_pygame
 import sys
 import constants
-from sandbox import Sandbox
+import sandbox
 
 # Initialize Pygame
 pygame.init()
@@ -11,9 +10,7 @@ pygame.init()
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode((constants.screen_width, constants.screen_height))
 pygame.display.set_caption("Internity Grove")
-
-# Initialize Sandbox
-sandbox = Sandbox()
+dev_sandbox = sandbox.Sandbox()
 
 # Main game loop
 running = True
@@ -27,7 +24,7 @@ while running:
     screen.fill((0, 0, 0))
 
     # Draw Sandbox
-    sandbox.draw(screen)
+    dev_sandbox.draw(screen)
 
     # Update the display
     pygame.display.flip()

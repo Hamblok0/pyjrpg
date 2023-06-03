@@ -1,10 +1,14 @@
 import pygame
 import constants
+from pytmx.util_pygame import load_pygame
 
 class Sandbox:
     def __init__(self):
-        self.surface = pygame.Surface((1440, 810))
-        self.surface.fill((255, 255, 255))
+        self.tmx = load_pygame('./maps/devsandbox.tmx')
 
     def draw(self, screen):
-        screen.blit(self.surface, (constants.screen_width // 2 - self.surface.get_width() // 2, constants.screen_height // 2 - self.surface.get_height() // 2))
+        for layer in self.tmx.visible_layers:
+            for x, y, gid in layer:
+                tile = self.tmx.get_tile_image_by_gid(gid)
+                if tile:
+                    screen.blit(tile, (x * self.tmx.tilewidth, y * self.tmx.tileheight))
